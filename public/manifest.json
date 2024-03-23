@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Kupoprodajni ugovori",
+  "name": "Webstranica za prikaz kupoprodajnih ugovora",
   "icons": [
     {
       "src": "favicon.ico",
