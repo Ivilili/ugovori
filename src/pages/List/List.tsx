@@ -112,6 +112,7 @@ const List = () => {
                 brojUgovora={item?.broj_ugovora} 
                 rokIsporuke={item?.rok_isporuke} 
                 status={item?.status} 
+                id={item?.id}
               />
           ))}
           </div>

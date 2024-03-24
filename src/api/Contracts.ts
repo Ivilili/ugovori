@@ -6,3 +6,17 @@ export const getAllContracts = async () => {
     `ugovori`
   );
 };
+
+export const getContractById = async (id: string) => {
+  return apiRequest<any, any>(
+    "get",
+    `ugovori/${id}`
+  );
+};
+
+export const getContractProducts = async (id: string) => {
+  return apiRequest<any, any>(
+    "get",
+    `ugovori/${id}/artikli`
+  );
+};

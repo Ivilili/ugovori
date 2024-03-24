@@ -1,0 +1,50 @@
+@import "src/styles/lib";
+
+.Details {
+    padding: rem(50);
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: rem(50);
+    }
+    &__main-title {
+        text-align: center;
+    }
+    &__subtitle {
+        text-align: center;
+        margin: rem(50) auto; 
+    }
+    &__content {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: rem(20);
+        margin: rem(38) auto;
+    }
+  
+    &__button {
+        width: rem(250);
+        background: transparent;
+        border: 1px solid $secondary-color;
+        color: $secondary-color;
+        &:hover {
+            background: $secondary-color;
+            color: $white;
+        }
+    }
+}
+
+@include mobile {
+    .Details {
+        &__wrapper {
+          flex-direction: column;
+        }
+    }
+}
