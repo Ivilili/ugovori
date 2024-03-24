@@ -33,9 +33,15 @@
        margin: 0 auto;
        height: rem(50);
     }
+    &__status-box {
+        width: rem(160);
+        margin: rem(10) auto;
+        height: rem(48);
+    }
     &__status {
         text-transform: uppercase; 
         font-weight: 700;
+        cursor: pointer;
         &--created {
             color: $success;
         }

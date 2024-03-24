@@ -30,9 +30,18 @@ export const createNewContract = async (data:ContractProps) => {
   );
 };
 
+export const updateNewContract = async (id: string, status: string) => {
+  return apiRequest<any, any>(
+    "put",
+    `ugovori/${id}`,
+   { status: status }
+  );
+};
+
 export const getContractProducts = async (id: string) => {
   return apiRequest<any, any>(
     "get",
     `ugovori/${id}/artikli`
   );
 };
+
