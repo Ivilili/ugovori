@@ -18,12 +18,14 @@ const Contract = (props: ContractProps) => {
   const { kupac, rokIsporuke, status, brojUgovora, id } = props;
   const navigate = useNavigate();
 
+  let rokIsporuke2 = new Date(rokIsporuke * 1000).toLocaleDateString("hr");
+
   return (
     <div className="Contract">
         <div className="Contract__content">
         <h2 className="Contract__title">{kupac}</h2>
         <div className="Contract__id"> {brojUgovora} </div>
-        <p className="Contract__subtitle">{rokIsporuke} </p>
+        <p className="Contract__subtitle">{rokIsporuke2} </p>
         <p className={cs("Contract__status", 
            status.toLowerCase() === "kreirano" &&`Contract__status--created`, 
            status.toLowerCase() === "naručeno" && `Contract__status--ordered`,

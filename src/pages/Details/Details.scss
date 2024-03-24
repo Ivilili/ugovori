@@ -39,6 +39,14 @@
             color: $white;
         }
     }
+    &__no-content {
+        text-align: center;
+        margin: rem(100) auto;
+        font-size: rem(24);
+        color: $primary-color;
+        letter-spacing: 0.4px;
+        font-weight: 500;
+    }
 }
 
 @include mobile {
