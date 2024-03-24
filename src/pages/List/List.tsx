@@ -16,7 +16,13 @@ interface ContractsProps {
     datum_akontacije: any;
     rok_isporuke?: any;
     status: string;
-  }
+}
+
+//@TODO - napraviti mogucnost izmijene rok_isporuke 
+//@TODO - validacija datuma (korisnik ne moze kliknuti na prosli datum, placeholder datuma zamijeniti za hrvatski format)
+//@TODO - bolja korist typescript-a (zamijeniti any)
+//@TODO - dodati opcije dodati artikale
+
 
 
 const List = () => {
@@ -89,14 +95,13 @@ const List = () => {
           /> 
           <div className="List__filter-container">
           <SelectBox
-              className="OrganizationAnalytics__selectbox2"
-              className2="OrganizationAnalytics__selectbox-header"
               items={filterByActive}
               selectedItem={selectedFilter}
               onItemSelect={(name, value) => {
                 setSelectedFilter({ name: name, value: value });
                 filterBy(value);
               }}
+              className="List__select-box"
              />
             <Button
               onClick={() =>  setOpenSidebar(true)}
@@ -115,6 +120,7 @@ const List = () => {
             rokIsporuke={item?.rok_isporuke} 
             status={item?.status} 
             id={item?.id}
+            refresh={() => getContacts()}
           />
         ))}
         </div>
@@ -127,12 +133,13 @@ const List = () => {
             }}
             sidebarRef={rightSidebarRef}
           >
-            <NewContract
+              <NewContract
               onClose={() => {
                 setOpenSidebar(!openRightSidebar);
               }}
               refresh={() => getContacts()}
              />
+          
           </RightSidebar>
         </div>
       )}

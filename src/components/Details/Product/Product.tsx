@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Button from "../../shared/Button/Button";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import cs from "classnames";
 
 import "./Product.scss";
-
 
 interface ProductProps {
     naziv?: string;

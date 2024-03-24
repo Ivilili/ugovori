@@ -66,6 +66,9 @@
       letter-spacing: 0.4px;
       font-weight: 500;
     }
+    &__select-box {
+     height: rem(56);
+    }
     &__main-filter-wrapper {
       display: flex;
       align-items: center;

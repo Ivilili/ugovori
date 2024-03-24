@@ -14,6 +14,7 @@ interface SelectBoxProps {
   items: ItemsType[];
   className?: string;
   className2?: string;
+  className3?: string;
   style?: any;
   selectedItem: any;
   onItemSelect: (name: string, value: string) => void;
@@ -30,6 +31,7 @@ const SelectBox = (props: SelectBoxProps) => {
     style,
     disabled,
     className2,
+    className3,
     isLoading,
     active,
   } = props;
@@ -73,7 +75,8 @@ const SelectBox = (props: SelectBoxProps) => {
             className={cs(
               "SelectBox__label",
               active && "SelectBox__label--active",
-              disabled && "SelectBox__label--disabled"
+              disabled && "SelectBox__label--disabled",
+              className3
             )}
           >
             {selectedItem?.name}
