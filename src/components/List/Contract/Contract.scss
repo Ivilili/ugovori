@@ -16,6 +16,9 @@
     &__content {
         margin-bottom: rem(12);
     }
+    &__title {
+        text-transform: capitalize;
+    }
  
     &__name {
         font-size: rem(16);

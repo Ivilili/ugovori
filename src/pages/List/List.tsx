@@ -7,6 +7,7 @@ import RightSidebar from '../../components/shared/RightSidebar/RightSidebar';
 import SelectBox from '../../components/shared/SelectBox/SelectBox';
 
 import "./List.scss";
+import NewContract from '../../components/List/NewContract/NewContract';
 
 interface ContractsProps {
     id: string;
@@ -31,15 +32,19 @@ const List = () => {
       {name: "Aktivni", value: "aktivni" },
       {name: "Neaktivni", value: "neaktivni"}
     ];
+
+    const getContacts = () => {
+      API.getAllContracts().then(res => {
+          setAllContracts(res?.data);
+          setFilterContracts(res?.data);
+      }).catch(err => console.error(err));
+    }
   
     useEffect(() => {
       let mounted:boolean = true;
-      API.getAllContracts().then(res => {
-        if(mounted) {
-          setAllContracts(res?.data);
-          setFilterContracts(res?.data);
-        }
-      }).catch(err => console.error(err));
+      if(mounted) {
+        getContacts();
+      }
       return () =>{
         mounted = false;
       } 
@@ -73,7 +78,6 @@ const List = () => {
       }
     };
 
-
   return (
     <div className="List">
       <h1 className="List__title lato-bold-italic" >Kupoprodajni ugovori</h1>
@@ -102,23 +106,18 @@ const List = () => {
           </div>
         
         </div> 
-        {allContracts?.length !== 0 ? (
-          <div className="List__grid">
-            {" "}
-            {filterContracts && filterContracts?.map((item: ContractsProps) => (
-              <Contract 
-                key={item?.id} 
-                kupac={item?.kupac} 
-                brojUgovora={item?.broj_ugovora} 
-                rokIsporuke={item?.rok_isporuke} 
-                status={item?.status} 
-                id={item?.id}
-              />
-          ))}
-          </div>
-        ) : (
-        <div className="List__no-content"> No contracts found! </div>
-        )}    
+        <div className="List__grid">
+        {filterContracts && filterContracts?.map((item: ContractsProps) => (
+          <Contract 
+            key={item?.id} 
+            kupac={item?.kupac} 
+            brojUgovora={item?.broj_ugovora} 
+            rokIsporuke={item?.rok_isporuke} 
+            status={item?.status} 
+            id={item?.id}
+          />
+        ))}
+        </div>
     </div>
     {openRightSidebar && (
         <div>
@@ -128,8 +127,12 @@ const List = () => {
             }}
             sidebarRef={rightSidebarRef}
           >
-            <div> Novi Ugovor: </div>
-      
+            <NewContract
+              onClose={() => {
+                setOpenSidebar(!openRightSidebar);
+              }}
+              refresh={() => getContacts()}
+             />
           </RightSidebar>
         </div>
       )}

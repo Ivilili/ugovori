@@ -80,8 +80,8 @@ const Details = () => {
 
     </div>
     <h2 className="Details__subtitle lato-bold-italic">Artikli:</h2>
-    <div className="Details__grid">
-        
+    {products?.length !== 0 ? (
+    <div className="Details__grid"> 
     {products && products.map((product: ProductProps, index: number) => {
       return(
        <Product 
@@ -93,6 +93,9 @@ const Details = () => {
       ) 
     })}
     </div>
+      ) : (
+        <div className="Details__no-content"> Artikli nisu pronađeni! </div>
+      )}
    
       
     </div>
