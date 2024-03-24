@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../shared/Button/Button";
+import { useNavigate } from "react-router-dom";
 import cs from "classnames";
 
 import "./Contract.scss";
@@ -10,10 +11,12 @@ interface ContractProps {
     brojUgovora: string;
     rokIsporuke?: any;
     status: string;
+    id?: string;
   }
 
 const Contract = (props: ContractProps) => {
-  const { kupac, rokIsporuke, status, brojUgovora } = props;
+  const { kupac, rokIsporuke, status, brojUgovora, id } = props;
+  const navigate = useNavigate();
 
   return (
     <div className="Contract">
@@ -28,7 +31,9 @@ const Contract = (props: ContractProps) => {
             )}>{status}</p>
         </div>
        <Button
-        onClick={() => {}}
+        onClick={() => {
+          navigate(`/contract/${id}`);
+        }}
         label="Detalji"
         className="Button__primary--outline Contract__button"
         /> 
