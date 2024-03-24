@@ -1,0 +1,101 @@
+@import "src/styles/lib";
+
+.List {
+    padding: rem(24);
+
+    &__title {
+      text-align: center;
+      margin-bottom: rem(50);
+      color: $primary-color;
+      font-size: rem(42);
+    }
+  
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: rem(24);
+    }
+    &__header-container {
+      display: flex;
+      align-items: center;
+    }
+    &__header-title {
+      font-size: rem(22);
+      margin: 0;
+      color: #111827;
+    }
+    &__header-button {
+      max-width: rem(129);
+      background-color: #0d99ff;
+      color: $white;
+      padding: rem(8) rem(20);
+      margin-left: rem(21);
+      &:hover {
+        background: darken(#0d99ff, 15%);
+      }
+    }
+    &__header-layout-icons {
+      background-color: $white;
+      border-radius: rem(12);
+      padding: rem(8);
+      display: flex;
+      align-items: center;
+    }
+    &__header-icon,
+    &__filter-icon {
+      width: rem(24);
+      height: rem(24);
+      color: #a0aec0;
+    }
+    
+    &__container {
+      background: $white;
+      border-radius: rem(16);
+      min-height: rem(650);
+      margin-bottom: rem(40);
+      padding: rem(24);
+    }
+    &__filter-icon {
+      margin-right: rem(8);
+    }
+    &__no-content {
+      text-align: center;
+      margin: rem(180) auto;
+      font-size: rem(24);
+      color: $primary-color;
+      letter-spacing: 0.4px;
+      font-weight: 500;
+    }
+    &__main-filter-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    &__filter-container {
+      display: flex;
+      align-items: center;
+      margin-left: rem(16);
+    }
+    &__grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: rem(20);
+      margin: rem(38) auto;
+    }
+  
+  
+}
+
+@include mobile {
+  .List {
+    &__main-filter-wrapper {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    &__filter-container {
+      margin-left: 0;
+      margin-top: rem(20);
+    }
+  }
+}

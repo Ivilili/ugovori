@@ -1,0 +1,46 @@
+@import "src/styles/lib";
+
+.SearchInput {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: rem(56);
+    border: none;
+    border-radius: rem(12);
+    background-color: #fafafa;
+    padding: rem(16);
+    &:focus-within {
+        border: rem(1) solid #77829E;
+        background-color: #ffffff;
+        color: #111827;
+        font-size: rem(16);
+    }
+
+    &__icon {
+        width: rem(24);
+        height: rem(24);
+        color: #9599ad;
+        margin-right: rem(12);
+    }
+
+    &__input {
+        width: 100%;
+        font-size: rem(16);
+        line-height: rem(24);
+        letter-spacing: 0.2px;
+        font-weight: 400;
+        height: rem(56);
+        border-radius: rem(12);
+        color: #111827;
+        outline: none;
+        border: none;
+        background: transparent;
+        &::placeholder {
+        color: #A0AEC0;
+        font-weight: 400;
+        }
+        &::placeholder {
+        color: #A0AEC0;
+        }
+    }
+}

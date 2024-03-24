@@ -1,0 +1,47 @@
+@import "src/styles/lib";
+
+.Contract {
+    background: #fafafa;
+    padding: rem(46) rem(35) rem(35);
+    border-radius: rem(12);
+    text-align: center;
+    position: relative;
+    transition: all 200ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+    width: rem(335);
+    &:hover {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    &__content {
+        margin-bottom: rem(12);
+    }
+ 
+    &__name {
+        font-size: rem(16);
+        color: #111827;
+        line-height: rem(24);
+        letter-spacing: 0.3px;
+        margin: 0 rem(16) 0 0;
+        text-transform: capitalize;
+    }
+    &__button {
+       width: rem(140);
+       margin: 0 auto;
+       height: rem(50);
+    }
+    &__status {
+        text-transform: uppercase; 
+        font-weight: 700;
+        &--created {
+            color: $success;
+        }
+        &--ordered {
+            color: $warning;
+        }
+        &--delivered {
+            color: $disabled; 
+        }
+    }
+   
+}
